@@ -1,3 +1,13 @@
+# conf.d/*.conf is included inside the http context, so this map is valid here.
+# Cache policy lives in the map rather than in per-location add_header blocks:
+# nginx drops every inherited add_header as soon as a location defines its own,
+# which silently stripped the security headers below from HTML responses.
+map $uri $ventu_cache_control {
+    # Unhashed styles.css / main.js must revalidate so deploys land at once.
+    default                                   "no-cache";
+    ~*\.(png|jpe?g|svg|webp|ico|woff2?)$      "public, max-age=2592000";
+}
+
 server {
     listen       ${PORT};
     server_name  _;
@@ -15,6 +25,11 @@ server {
     gzip_vary         on;
     gzip_types        text/plain text/css application/javascript image/svg+xml;
 
+    add_header Cache-Control          $ventu_cache_control always;
+    add_header X-Content-Type-Options nosniff                always;
+    add_header X-Frame-Options        SAMEORIGIN             always;
+    add_header Referrer-Policy        strict-origin-when-cross-origin always;
+
     # /suppliers and /drivers resolve to their .html files.
     # A real 404 stays a 404 — no SPA-style catch-all masking missing assets.
     location / {
@@ -23,25 +38,7 @@ server {
 
     location = /health {
         access_log off;
-        add_header Content-Type text/plain;
+        default_type text/plain;
         return 200 'ok';
     }
-
-    # HTML is re-validated every time so deploys land immediately.
-    location ~* \.html$ {
-        add_header Cache-Control "no-cache";
-    }
-
-    # styles.css / main.js are unhashed: re-validate, but allow a 304.
-    location ~* \.(css|js)$ {
-        add_header Cache-Control "no-cache";
-    }
-
-    location ~* \.(png|jpg|jpeg|svg|webp|ico|woff2?)$ {
-        add_header Cache-Control "public, max-age=2592000";
-    }
-
-    add_header X-Content-Type-Options nosniff always;
-    add_header X-Frame-Options SAMEORIGIN always;
-    add_header Referrer-Policy strict-origin-when-cross-origin always;
 }
