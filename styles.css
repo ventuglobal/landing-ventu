@@ -308,7 +308,7 @@ img.brand-mark::before {
 
 .hero-h1 {
   font-family: var(--font-sans);
-  font-size: clamp(24px, 2.66vw, 35px);
+  font-size: clamp(34px, 3.8vw, 50px);
   line-height: 1.06;
   letter-spacing: -0.035em;
   font-weight: 700;
