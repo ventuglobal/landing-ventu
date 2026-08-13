@@ -1,0 +1,47 @@
+server {
+    listen       ${PORT};
+    server_name  _;
+
+    root  /usr/share/nginx/html;
+    index index.html;
+
+    # Railway terminates TLS at the edge; keep real client info in logs.
+    real_ip_header    X-Forwarded-For;
+    set_real_ip_from  0.0.0.0/0;
+
+    gzip              on;
+    gzip_comp_level   6;
+    gzip_min_length   1024;
+    gzip_vary         on;
+    gzip_types        text/plain text/css application/javascript image/svg+xml;
+
+    # /suppliers and /drivers resolve to their .html files.
+    # A real 404 stays a 404 — no SPA-style catch-all masking missing assets.
+    location / {
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    location = /health {
+        access_log off;
+        add_header Content-Type text/plain;
+        return 200 'ok';
+    }
+
+    # HTML is re-validated every time so deploys land immediately.
+    location ~* \.html$ {
+        add_header Cache-Control "no-cache";
+    }
+
+    # styles.css / main.js are unhashed: re-validate, but allow a 304.
+    location ~* \.(css|js)$ {
+        add_header Cache-Control "no-cache";
+    }
+
+    location ~* \.(png|jpg|jpeg|svg|webp|ico|woff2?)$ {
+        add_header Cache-Control "public, max-age=2592000";
+    }
+
+    add_header X-Content-Type-Options nosniff always;
+    add_header X-Frame-Options SAMEORIGIN always;
+    add_header Referrer-Policy strict-origin-when-cross-origin always;
+}
