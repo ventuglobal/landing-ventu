@@ -4774,7 +4774,7 @@ img.brand-mark::before {
 
 /* Clear the notch, which sits 32px into the screen. */
 .phone-chat .wa-head { padding: 34px 11px 7px; }
-.phone-chat .wa-body { padding: 7px 8px 6px; gap: 2px; flex: 1; overflow: hidden; }
+.phone-chat .wa-body { padding: 7px 8px 4px; gap: 2px; flex: 1; overflow: hidden; }
 
 .wa-from {
   font-family: var(--font-mono);
@@ -4956,6 +4956,73 @@ img.brand-mark::before {
   .hiw-grid { grid-template-columns: 1fr; }
   .hiw-step::after { display: none; }
 }
+
+/* ────────── Chat typesetting inside the phone ──────────
+   Layout fixes that only show at this device size: the shared notch is sized
+   for a 320px frame, the timestamp was claiming a full row, and the file card
+   stretched the bubble while its icon floated away from the filename. */
+.phone-chat::before {
+  width: 72px;
+  height: 18px;
+  top: 11px;
+}
+.phone-chat .wa-msg {
+  display: flex;
+  flex-direction: column;
+}
+/* The time tucks under the text, right-aligned and on a tight line, instead
+   of sitting on a row of its own. */
+.phone-chat .wa-time {
+  line-height: 1;
+  margin-top: 4px;
+  align-self: flex-end;
+}
+/* The card hugs its contents and the icon sits with the filename, not
+   centred against the whole block. */
+.phone-chat .wa-file {
+  align-self: flex-start;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: 100%;
+}
+.phone-chat .wa-file-ic { margin-top: 1px; }
+.phone-chat .wa-file-name { letter-spacing: -0.02em; }
+.phone-chat .wa-file-meta { margin-top: 1px; }
+
+/* The composer closes the screen: a chat without one reads as a cropped
+   screenshot, and it fills the space the thread leaves at the bottom. */
+.wa-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 9px 8px;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--line);
+}
+.wa-bar-field {
+  flex: 1;
+  font-size: 9.5px;
+  color: var(--fg-subtle);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 6px 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wa-bar-send {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wa-bar-send svg { width: 12px; height: 12px; margin-left: 1px; }
 
 /* ────────── Category directory ──────────
    A classifieds-style index: names only, no icons, columns that reflow with
