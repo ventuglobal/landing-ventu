@@ -4868,25 +4868,6 @@ img.brand-mark::before {
   .hero-facts { grid-template-columns: 1fr; max-width: 100%; }
 }
 
-/* Catalogue categories sit smaller: the offer, not a feature grid. */
-.ww-grid-compact {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 24px;
-}
-.ww-grid-compact .ww-item { padding: 14px 15px; }
-.ww-grid-compact .ww-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  margin-bottom: 9px;
-}
-.ww-grid-compact .ww-icon svg { width: 16px; height: 16px; }
-.ww-grid-compact .ww-name { font-size: 13.5px; }
-.ww-grid-compact .ww-desc { font-size: 11.5px; line-height: 1.4; }
-@media (max-width: 900px) {
-  .ww-grid-compact { grid-template-columns: repeat(2, 1fr); }
-}
 
 /* ────────── How it works · four steps ────────── */
 .hiw-head { text-align: center; max-width: 640px; margin: 0 auto 36px; }
@@ -4975,6 +4956,30 @@ img.brand-mark::before {
   .hiw-grid { grid-template-columns: 1fr; }
   .hiw-step::after { display: none; }
 }
+
+/* ────────── Category directory ──────────
+   A classifieds-style index: names only, no icons, columns that reflow with
+   the viewport. The point is breadth, so nothing competes with the words. */
+.cat-list {
+  list-style: none;
+  columns: 5;
+  column-gap: 28px;
+  margin-top: 26px;
+}
+.cat-list li {
+  break-inside: avoid;
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--fg-soft);
+  padding: 5px 0;
+  border-bottom: 1px solid var(--line-soft);
+  transition: color 0.15s ease;
+}
+.cat-list li:hover { color: var(--brand); }
+@media (max-width: 1100px) { .cat-list { columns: 4; } }
+@media (max-width: 860px)  { .cat-list { columns: 3; } }
+@media (max-width: 640px)  { .cat-list { columns: 2; column-gap: 20px; } }
+@media (max-width: 400px)  { .cat-list { columns: 1; } }
 
 /* ────────── Sub-page themes ──────────
    The sub-pages re-theme by overriding --brand-rgb, which every alpha variant
