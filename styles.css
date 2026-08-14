@@ -2386,6 +2386,9 @@ img.brand-mark::before {
 /* Contenedor visual del hero (columna derecha) */
 .hero-visual {
   display: flex;
+  /* Stacked, so the channel note reads as a caption under the phone rather
+     than as a second column beside it. */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -4491,15 +4494,7 @@ img.brand-mark::before {
    Replaces the architecture diagram: the same thread carries request,
    response, invoicing, delivery and sign-off, which is easier to believe
    than boxes and arrows. */
-.wa {
-  margin: 56px auto 0;
-  max-width: 720px;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--bg-elevated);
-  box-shadow: 0 24px 60px -24px rgba(var(--brand-rgb), 0.3);
-}
+
 .wa-head {
   display: flex;
   align-items: center;
@@ -4639,15 +4634,7 @@ img.brand-mark::before {
   .wa-body { padding: 16px 12px; }
 }
 
-/* The thread now leads the hero, so it fills its column instead of
-   centring at its own width. */
-.wa-hero {
-  margin: 0 0 0 auto;
-  max-width: 100%;
-}
-.wa-hero .wa-text { font-size: 13px; }
-.wa-hero .wa-body { padding: 16px 14px; gap: 8px; }
-.wa-hero .wa-note { padding: 16px 18px 18px; }
+
 
 /* ────────── Intake channels panel (hero) ──────────
    Replaces the storefront mockup: the product is the agent reading a request
@@ -4863,6 +4850,74 @@ img.brand-mark::before {
 @media (max-width: 960px) {
   .channels { max-width: 100%; margin: 0 auto; }
 }
+
+/* ────────── Conversation inside the phone ──────────
+   The thread runs in the device it actually happens on. The frame comes from
+   .phone; this variant lets it grow with the thread instead of clipping to a
+   fixed screen. */
+.phone-chat { height: auto; }
+.phone-chat .phone-screen { height: auto; }
+.wa-wrap { min-height: 0; }
+
+/* Clear the notch, which sits 32px into the screen. */
+.phone-chat .wa-head { padding: 46px 16px 12px; }
+.phone-chat .wa-body { padding: 12px 10px 16px; gap: 5px; }
+
+.wa-from {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.wa-in  .wa-from { color: var(--brand); }
+.wa-out .wa-from { color: var(--accent); }
+
+.phone-chat .wa-msg  { max-width: 88%; padding: 7px 9px; }
+.phone-chat .wa-text { font-size: 11.5px; line-height: 1.45; }
+.phone-chat .wa-time { font-size: 8px; margin-top: 4px; }
+.phone-chat .wa-stage {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  padding: 3px 9px;
+  margin-top: 4px;
+}
+
+/* Attachments read as files: icon, name and what is inside. */
+.wa-file {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+}
+.wa-out .wa-file { background: var(--bg-elevated); }
+.wa-file-ic {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--brand);
+}
+.wa-file-txt { min-width: 0; }
+.wa-file-name {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--fg-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wa-file-meta {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--fg-subtle);
+  margin-top: 2px;
+}
+
+.wa-note { margin-top: 22px; border-top: none; }
 
 /* ────────── Sub-page themes ──────────
    The sub-pages re-theme by overriding --brand-rgb, which every alpha variant
