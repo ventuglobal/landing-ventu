@@ -173,7 +173,18 @@ app.use((_req, res) => res.status(404).sendFile(path.join(STATIC, '404.html'), (
   if (err) res.type('text').send('No encontrado');
 }));
 
+// One-off maintenance, inert unless the variable is set. Used to clear the
+// rows this deployment's own smoke tests wrote, then removed.
+async function purgeTestRows() {
+  if (!pool || process.env.MAINTENANCE_PURGE_TEST !== '1') return;
+  const { rowCount } = await pool.query(
+    `DELETE FROM registrations WHERE email LIKE '%@example.com'`
+  );
+  console.log(`[mantenimiento] filas de prueba eliminadas: ${rowCount}`);
+}
+
 ensureSchema()
+  .then(purgeTestRows)
   .catch((err) => console.error('[schema]', err.message))
   .finally(() => {
     app.listen(PORT, () => console.log(`landing-ventu escuchando en :${PORT}`));
