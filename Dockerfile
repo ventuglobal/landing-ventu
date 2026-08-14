@@ -1,14 +1,16 @@
-FROM nginx:1.27-alpine
+FROM node:22-alpine
 
-# The official image runs envsubst over /etc/nginx/templates/*.template at
-# startup, which is how ${PORT} from Railway reaches the server block.
-COPY nginx.conf.template /etc/nginx/templates/default.conf.template
+WORKDIR /app
 
-COPY index.html suppliers.html drivers.html styles.css main.js ventu-logo.png \
-     /usr/share/nginx/html/
+# Dependencies first so a copy-only change does not reinstall them.
+COPY package.json package-lock.json* ./
+RUN npm install --omit=dev --no-audit --no-fund
 
-# Local default; Railway injects its own PORT.
+COPY server.js ./
+COPY index.html suppliers.html drivers.html styles.css main.js ventu-logo.png ./
+
+ENV NODE_ENV=production
 ENV PORT=8080
-# Substitute ONLY ${PORT}, so nginx runtime vars like $uri survive envsubst.
-ENV NGINX_ENVSUBST_FILTER=PORT
 EXPOSE 8080
+
+CMD ["node", "server.js"]
