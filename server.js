@@ -54,21 +54,25 @@ async function ensureSchema() {
   );
 }
 
-// One in-memory bucket per address. Enough to stop a bored script; it is not a
-// substitute for a real WAF, and it resets when the container restarts.
-const hits = new Map();
-function rateLimited(ip) {
+// Two in-memory buckets. The address bucket stops a bored script; the e-mail
+// bucket still catches it when the address rotates, which it does behind some
+// proxies. Neither substitutes for a real WAF, and both reset on restart.
+const buckets = new Map();
+function overLimit(key, max, windowMs) {
   const now = Date.now();
-  const windowMs = 60_000;
-  const max = 5;
-  const rec = hits.get(ip);
+  const rec = buckets.get(key);
   if (!rec || now - rec.start > windowMs) {
-    hits.set(ip, { start: now, count: 1 });
+    buckets.set(key, { start: now, count: 1 });
     return false;
   }
   rec.count += 1;
-  if (hits.size > 5000) hits.clear();
+  if (buckets.size > 8000) buckets.clear();
   return rec.count > max;
+}
+function rateLimited(ip, email) {
+  const byIp = overLimit(`ip:${ip}`, 5, 60_000);
+  const byEmail = overLimit(`em:${email}`, 3, 3_600_000);
+  return byIp || byEmail;
 }
 
 function clean(value, max) {
@@ -103,7 +107,7 @@ app.post('/api/registro', async (req, res) => {
   // the sender learns nothing from the response.
   if (clean(body.website, 80)) return res.json({ ok: true });
 
-  if (rateLimited(req.ip || 'unknown')) return res.status(429).json({ error: 'rate' });
+  if (rateLimited(req.ip || 'unknown', email)) return res.status(429).json({ error: 'rate' });
 
   if (!pool) {
     console.error('[registro] DATABASE_URL is not set; submission not stored');
