@@ -13,8 +13,8 @@
 
   --fg:           #1a0f25;
   --fg-soft:      #2e1f3f;
-  --fg-muted:     #6a5a7a;
-  --fg-subtle:    #9a8aa8;
+  --fg-muted:     #5b4a6b;
+  --fg-subtle:    #71617f;
 
   /* Brand as an RGB triplet so every alpha variant below can be re-themed
      by overriding one variable. Sub-pages do exactly that. */
@@ -1222,8 +1222,8 @@ img.brand-mark::before {
 }
 .faq-a-inner {
   padding: 0 0 24px;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.7;
   color: var(--fg-muted);
   max-width: 720px;
 }
@@ -2622,8 +2622,8 @@ img.brand-mark::before {
   margin-bottom: 4px;
 }
 .ww-desc {
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--fg-soft);
 }
 @media (max-width: 900px) {
@@ -3434,9 +3434,10 @@ img.brand-mark::before {
   color: #c5edd9;
 }
 .stats-header p {
-  font-size: 16px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.78);
+  font-size: 17px;
+  line-height: 1.6;
+  /* 0.78 alpha fell to 4.38:1 against the light end of the gradient. */
+  color: rgba(255, 255, 255, 0.92);
 }
 .stats-grid {
   display: grid;
@@ -4529,7 +4530,7 @@ img.brand-mark::before {
   color: var(--brand);
 }
 .wa-note p {
-  font-size: 13.5px;
+  font-size: 15px;
   line-height: 1.55;
   color: var(--fg-muted);
   max-width: 56ch;
@@ -4859,7 +4860,7 @@ img.brand-mark::before {
   color: var(--fg-subtle);
 }
 .hero-fact-v {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--fg);
@@ -4941,7 +4942,7 @@ img.brand-mark::before {
   color: var(--fg);
   margin-bottom: 7px;
 }
-.hiw-text { font-size: 15px; line-height: 1.55; color: var(--fg-muted); }
+.hiw-text { font-size: 16px; line-height: 1.6; color: var(--fg-muted); }
 
 /* ────────── AI business flow ────────── */
 @media (max-width: 1000px) {
@@ -5042,8 +5043,8 @@ img.brand-mark::before {
 }
 .cat-list li {
   break-inside: avoid;
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.55;
   color: var(--fg-soft);
   padding: 5px 0;
   border-bottom: 1px solid var(--line-soft);
