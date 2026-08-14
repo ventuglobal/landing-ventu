@@ -267,7 +267,9 @@ img.brand-mark::before {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  align-items: center;
+  /* The thread is much taller than the copy; centring left a gap above the
+     eyebrow. Both columns now start together. */
+  align-items: start;
   position: relative;
   z-index: 1;
 }
@@ -4636,6 +4638,16 @@ img.brand-mark::before {
   .wa-msg { max-width: 88%; }
   .wa-body { padding: 16px 12px; }
 }
+
+/* The thread now leads the hero, so it fills its column instead of
+   centring at its own width. */
+.wa-hero {
+  margin: 0 0 0 auto;
+  max-width: 100%;
+}
+.wa-hero .wa-text { font-size: 13px; }
+.wa-hero .wa-body { padding: 16px 14px; gap: 8px; }
+.wa-hero .wa-note { padding: 16px 18px 18px; }
 
 /* ────────── Intake channels panel (hero) ──────────
    Replaces the storefront mockup: the product is the agent reading a request
