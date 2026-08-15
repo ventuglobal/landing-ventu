@@ -5572,22 +5572,22 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
 .stk-modcard-more {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  margin-top: 2px;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 2px 0 0 -6px;
   padding: 0;
   background: none;
   border: 0;
+  border-radius: 50%;
   cursor: pointer;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 600;
   color: var(--brand);
+  transition: background 0.2s var(--ease);
 }
+.stk-modcard-more:hover { background: var(--brand-bg); }
 .stk-modcard-more .stk-chev {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-right: 1.5px solid currentColor;
   border-bottom: 1.5px solid currentColor;
   transform: rotate(45deg) translate(-1px, -1px);
@@ -5611,3 +5611,18 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
 
 /* The stack heading sat a couple of points above everything around it. */
 #stack .hiw-head h2 { font-size: clamp(27px, 3vw, 38px); }
+
+/* Available to a screen reader, absent from the page. The chevron carries
+   the affordance visually; the label still has to exist for anyone who
+   cannot see it. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
