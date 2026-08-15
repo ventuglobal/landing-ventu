@@ -5543,8 +5543,19 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
   color: var(--brand);
 }
 .stk-modcard-ic svg { width: 18px; height: 18px; }
-.stk-modcard-name .ventu-mark { margin-right: 3px; }
-.stk-core-title .ventu-mark { margin-right: 5px; }
+/* Only the lower 73% of the logo file is the body of the word; the top
+   quarter is the ascender of the "t" alone. Sizing the box to the x-height
+   therefore leaves the wordmark visibly smaller than the capitals beside
+   it, so the box is scaled by that factor to bring the letters up to the
+   cap band of the module name. */
+.stk-modcard-name .ventu-mark {
+  height: 1.78ex;
+  margin-right: 4px;
+}
+.stk-core-title .ventu-mark {
+  height: 1.78ex;
+  margin-right: 7px;
+}
 .stk-modcard-name {
   font-size: 16px;
   font-weight: 700;
