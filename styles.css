@@ -5457,6 +5457,11 @@ img.brand-mark::before {
   background: var(--accent-bg);
   border: 1px solid var(--accent-line);
 }
+.stk-tag--beta {
+  color: #8a4b00;
+  background: rgba(196, 120, 0, 0.09);
+  border: 1px solid rgba(196, 120, 0, 0.28);
+}
 .stk-tag--soon {
   color: var(--fg-subtle);
   background: rgba(26, 15, 37, 0.04);
@@ -5567,3 +5572,6 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
   .stk-modcard-head { flex-wrap: wrap; }
   .stk-modcard-name { margin-right: 0; }
 }
+
+/* The stack heading sat a couple of points above everything around it. */
+#stack .hiw-head h2 { font-size: clamp(27px, 3vw, 38px); }
