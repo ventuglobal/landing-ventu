@@ -5678,3 +5678,68 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
   font-weight: 600;
   color: var(--fg-subtle);
 }
+
+/* ════════════════════════════════════════════════════════════
+   CLICKBOX · timeline
+   The story runs 2017 to today, so it reads on a time axis rather than
+   as another paragraph.
+   ════════════════════════════════════════════════════════════ */
+.cbx-tl {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 22px 0 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.cbx-tl-item {
+  position: relative;
+  padding-top: 10px;
+}
+/* The dot sits on the rule above, with the connecting run drawn between. */
+.cbx-tl-item::before {
+  content: '';
+  position: absolute;
+  top: -28px;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg-elevated);
+  border: 2px solid var(--brand);
+}
+.cbx-tl-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: -23px;
+  left: 15px;
+  right: -24px;
+  height: 1px;
+  background: var(--brand-line);
+}
+.cbx-tl-year {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: var(--brand);
+  margin-bottom: 8px;
+}
+.cbx-tl-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--fg-soft);
+  font-weight: 500;
+  text-wrap: pretty;
+}
+
+@media (max-width: 760px) {
+  .cbx-tl { grid-template-columns: 1fr; gap: 26px; padding-top: 22px; }
+  .cbx-tl-item { padding-top: 0; padding-left: 26px; }
+  .cbx-tl-item::before { top: 4px; left: 0; }
+  .cbx-tl-item:not(:last-child)::after {
+    top: 20px; left: 5px; right: auto;
+    width: 1px; height: calc(100% + 12px);
+  }
+}
