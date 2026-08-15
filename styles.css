@@ -5508,8 +5508,8 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
   margin-bottom: 10px;
 }
 .stk-core-line .stk-core-title { margin-bottom: 0; }
-.stk-engine-head { margin-bottom: 20px; }
-.stk-engine-head .stk-benefit { margin-bottom: 0; }
+.stk-engine-head { margin-bottom: 22px; }
+
 
 .stk-modlist {
   display: flex;
@@ -5742,4 +5742,39 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
     top: 20px; left: 5px; right: auto;
     width: 1px; height: calc(100% + 12px);
   }
+}
+
+/* ════════════════════════════════════════════════════════════
+   STACK · a colour per engine
+   Each engine carries its own hue on the rule above its title and on
+   its number, so the three lanes read apart at a glance. Contrast on the
+   card background is 4.9:1 or better in every case, so the numbers stay
+   legible as text rather than only as decoration.
+   ════════════════════════════════════════════════════════════ */
+.stk-engine { --lane: var(--brand); position: relative; }
+.stk-engine--1 { --lane: #7c24ec; }
+.stk-engine--2 { --lane: #0e7c66; }
+.stk-engine--3 { --lane: #1f5fbf; }
+
+.stk-engine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 26px;
+  right: 26px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--lane);
+}
+.stk-engine .stk-num { color: var(--lane); }
+.stk-engine .stk-title { color: var(--fg); }
+.stk-engine:hover { border-color: color-mix(in srgb, var(--lane) 35%, transparent); }
+
+/* The connector drop into each engine picks up its lane colour too. */
+.stk-branch-drop:nth-of-type(3) { background: #7c24ec; }
+.stk-branch-drop:nth-of-type(4) { background: #0e7c66; }
+.stk-branch-drop:nth-of-type(5) { background: #1f5fbf; }
+
+@media (max-width: 560px) {
+  .stk-engine::before { left: 20px; right: 20px; }
 }
