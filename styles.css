@@ -5567,6 +5567,42 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
   text-wrap: pretty;
 }
 
+/* The technical paragraph is the depth, not the headline: it opens on
+   demand so a card reads as one claim until someone asks for more. */
+.stk-modcard-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 2px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--brand);
+}
+.stk-modcard-more .stk-chev {
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform 0.25s var(--ease);
+}
+.stk-modcard.open .stk-chev { transform: rotate(225deg) translate(-1px, -1px); }
+.stk-modcard-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s var(--ease);
+}
+.stk-modcard.open .stk-modcard-panel { grid-template-rows: 1fr; }
+.stk-modcard-panel-in { overflow: hidden; }
+.stk-modcard-panel-in .stk-modcard-tech { padding-top: 12px; }
+
 @media (max-width: 700px) {
   .stk-modlist--core { grid-template-columns: 1fr; }
   .stk-modcard-head { flex-wrap: wrap; }
