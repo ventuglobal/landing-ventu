@@ -265,7 +265,7 @@ img.brand-mark::before {
   margin: 0 auto;
   padding: 0 var(--gutter);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.12fr 0.88fr;
   gap: 56px;
   /* Centring used to strand the eyebrow far down the page, because the thread
      towered over the copy. The columns are close enough in height now that
@@ -311,14 +311,14 @@ img.brand-mark::before {
 
 .hero-h1 {
   font-family: var(--font-sans);
-  font-size: clamp(34px, 3.8vw, 50px);
-  line-height: 1.16;
+  font-size: clamp(32px, 3.2vw, 43px);
+  line-height: 1.18;
   letter-spacing: -0.03em;
   font-weight: 700;
   margin-bottom: 26px;
   color: var(--fg);
-  text-wrap: balance;
-  max-width: 22ch;
+  text-wrap: pretty;
+  max-width: 30ch;
 }
 .hero-h1 em {
   font-weight: 600;
