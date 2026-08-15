@@ -4831,7 +4831,7 @@ img.brand-mark::before {
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin-top: 44px;
-  max-width: 460px;
+  max-width: 560px;
 }
 .hero-fact {
   border: 1px solid var(--line);
@@ -5625,4 +5625,40 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   HERO · extended sourcing promise and launch CTA
+   ════════════════════════════════════════════════════════════ */
+.hero-sourcing {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid var(--brand-line);
+  border-radius: 12px;
+  background: var(--brand-bg);
+  max-width: 500px;
+}
+.hero-sourcing p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--fg-soft);
+  margin: 0;
+  text-wrap: pretty;
+}
+.hero-sourcing strong { color: var(--brand-deep); font-weight: 700; }
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 18px;
+  margin-top: 26px;
+}
+.hero-launch {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--fg-subtle);
 }
