@@ -5543,6 +5543,8 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
   color: var(--brand);
 }
 .stk-modcard-ic svg { width: 18px; height: 18px; }
+.stk-modcard-name .ventu-mark { margin-right: 3px; }
+.stk-core-title .ventu-mark { margin-right: 5px; }
 .stk-modcard-name {
   font-size: 16px;
   font-weight: 700;
@@ -5550,7 +5552,6 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
   color: var(--fg);
   margin: 0 auto 0 0;
 }
-.stk-modcard-brand { font-weight: 500; color: var(--fg-subtle); }
 .stk-modcard-benefit {
   font-size: 15px;
   line-height: 1.45;
