@@ -4821,7 +4821,8 @@ img.brand-mark::before {
   margin-top: 2px;
 }
 
-.wa-note { margin-top: 22px; border-top: none; }
+/* Only the two channel chips remain here, so the block needs no padding of its own. */
+.wa-note { margin-top: 22px; padding: 0; border-top: none; }
 
 /* ────────── Hero fact boxes ──────────
    The three headline facts read as cards under the copy rather than as a row
