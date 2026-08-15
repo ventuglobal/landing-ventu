@@ -5169,17 +5169,15 @@ img.brand-mark::before {
    ════════════════════════════════════════════════════════════ */
 .cbx {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1fr 1.05fr;
   gap: 52px;
-  /* Stretch, so the two tiles fill the copy column's height instead of
-     floating at the top of an empty half. */
-  align-items: stretch;
+  align-items: start;
 }
 .cbx-logo {
   display: block;
   width: auto;
-  height: 62px;
-  margin-bottom: 24px;
+  height: 93px;
+  margin-bottom: 26px;
 }
 .cbx-lead {
   font-size: 20px;
@@ -5212,9 +5210,11 @@ img.brand-mark::before {
 
 .cbx-metrics {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
+/* The speed proof sits under both figures, spanning them. */
+.cbx-metrics .cbx-jump { grid-column: 1 / -1; }
 .cbx-metric {
   background: var(--bg);
   border: 1px solid var(--line);
@@ -5248,8 +5248,7 @@ img.brand-mark::before {
 
 /* The SKU jump: the one figure worth reading from across the room. */
 .cbx-jump {
-  margin-top: 44px;
-  padding: 34px 28px 32px;
+  padding: 28px 26px 26px;
   border: 1px solid var(--brand-line);
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(var(--brand-rgb), 0.08) 0%, rgba(var(--brand-rgb), 0.02) 100%);
@@ -5262,13 +5261,13 @@ img.brand-mark::before {
   text-transform: uppercase;
   font-weight: 600;
   color: var(--brand);
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 .cbx-jump-figures {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
   font-family: var(--font-sans);
   font-weight: 700;
@@ -5276,11 +5275,11 @@ img.brand-mark::before {
   line-height: 1;
 }
 .cbx-jump-from {
-  font-size: clamp(30px, 4.4vw, 52px);
+  font-size: clamp(24px, 2.6vw, 32px);
   color: var(--fg-subtle);
 }
 .cbx-jump-to {
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(34px, 3.8vw, 46px);
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -5290,23 +5289,22 @@ img.brand-mark::before {
   align-self: center;
   color: var(--brand-line);
 }
-.cbx-jump-arrow svg { width: clamp(28px, 3.6vw, 44px); height: auto; display: block; }
+.cbx-jump-arrow svg { width: 28px; height: auto; display: block; }
 .cbx-jump-unit {
-  font-size: clamp(17px, 1.9vw, 23px);
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--fg-soft);
 }
 .cbx-jump-time {
-  margin-top: 14px;
-  font-size: clamp(17px, 1.7vw, 21px);
+  margin-top: 10px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--fg);
 }
 .cbx-jump-foot {
-  max-width: 620px;
-  margin: 18px auto 0;
-  font-size: 17px;
+  margin: 14px 0 0;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--fg-muted);
   text-wrap: pretty;
@@ -5512,8 +5510,8 @@ img.brand-mark::before {
   --brand-deep: #3f0d84;
   --brand-bg:   rgba(var(--brand-rgb), 0.07);
   --brand-line: rgba(var(--brand-rgb), 0.2);
-  margin-top: 64px;
-  padding-top: 56px;
+  margin-top: 56px;
+  padding-top: 48px;
   border-top: 1px solid var(--line);
 }
 .stkx-head {
