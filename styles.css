@@ -5267,7 +5267,7 @@ img.brand-mark::before {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
   font-family: var(--font-sans);
   font-weight: 700;
@@ -5275,11 +5275,11 @@ img.brand-mark::before {
   line-height: 1;
 }
 .cbx-jump-from {
-  font-size: clamp(24px, 2.6vw, 32px);
+  font-size: clamp(28px, 3vw, 36px);
   color: var(--fg-subtle);
 }
 .cbx-jump-to {
-  font-size: clamp(34px, 3.8vw, 46px);
+  font-size: clamp(28px, 3vw, 36px);
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -5289,21 +5289,21 @@ img.brand-mark::before {
   align-self: center;
   color: var(--brand-line);
 }
-.cbx-jump-arrow svg { width: 28px; height: auto; display: block; }
+.cbx-jump-arrow svg { width: 26px; height: auto; display: block; }
 .cbx-jump-unit {
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
   color: var(--fg-soft);
 }
 .cbx-jump-time {
   margin-top: 10px;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
-  color: var(--fg);
+  color: var(--fg-soft);
 }
 .cbx-jump-foot {
-  margin: 14px 0 0;
+  margin: 12px 0 0;
   font-size: 15px;
   line-height: 1.6;
   color: var(--fg-muted);
