@@ -5339,9 +5339,8 @@ img.brand-mark::before {
   margin-bottom: 10px;
 }
 .stk-core {
-  display: grid;
-  grid-template-columns: 68px 1fr;
-  gap: 22px;
+  /* The icon-and-copy row is its own grid now, so the card itself just stacks. */
+  display: block;
   background: linear-gradient(135deg, rgba(var(--brand-rgb), 0.07) 0%, rgba(var(--brand-rgb), 0.02) 100%);
   border: 1px solid var(--brand-line);
   border-radius: 18px;
@@ -5368,7 +5367,6 @@ img.brand-mark::before {
 }
 /* The alignment floor only exists to line up the three engine columns. */
 .stk-core .stk-desc { min-height: 0; }
-.stk-core .stk-mods { max-width: 460px; }
 
 /* Connector drawn in CSS: a stem down from the core, a bar across, three drops. */
 /* Full grid width, so the three drops land on the column centres below. */
@@ -5444,29 +5442,6 @@ img.brand-mark::before {
   min-height: 78px;
 }
 
-.stk-mods {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--line);
-  padding-top: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.stk-mod {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 0;
-}
-.stk-mod-name {
-  font-family: var(--font-mono);
-  font-size: 13.5px;
-  font-weight: 500;
-  color: var(--fg-soft);
-  margin-right: auto;
-}
 .stk-tag {
   font-family: var(--font-mono);
   font-size: 9.5px;
@@ -5495,108 +5470,100 @@ img.brand-mark::before {
   .stk-branch-stem { height: 24px; }
 }
 @media (max-width: 560px) {
-  .stk-core { grid-template-columns: 1fr; gap: 18px; padding: 26px 22px; }
+  .stk-core { padding: 26px 22px; }
+  .stk-core-top { grid-template-columns: 1fr; gap: 16px; }
   .stk-mod { flex-wrap: wrap; gap: 6px; }
 }
 
-/* ════════════════════════════════════════════════════════════
-   STACK EXTENDED · the twelve modules in full
-   Its own accent, one shade deeper than the site brand, so the block
-   reads as a separate register without leaving the palette.
-   ════════════════════════════════════════════════════════════ */
-.stkx {
-  --brand-rgb:  90, 20, 181;
-  --brand:      rgb(var(--brand-rgb));
-  --brand-deep: #3f0d84;
-  --brand-bg:   rgba(var(--brand-rgb), 0.07);
-  --brand-line: rgba(var(--brand-rgb), 0.2);
-  margin-top: 56px;
-  padding-top: 48px;
-  border-top: 1px solid var(--line);
-}
-.stkx-head {
-  text-align: center;
-  max-width: 620px;
-  margin: 0 auto 36px;
-}
-.stkx-head h3 {
-  font-family: var(--font-sans);
-  font-size: clamp(26px, 3vw, 36px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.12;
-  color: var(--fg);
-  margin-top: 12px;
-  text-wrap: balance;
-}
-.stkx-head h3 em {
-  font-weight: 600;
-  color: var(--brand);
-}
-.stkx-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.stkx-card {
-  background: var(--bg-elevated);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 24px 22px 22px;
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
-}
-.stkx-card:hover {
-  border-color: var(--brand-line);
-  transform: translateY(-2px);
-}
-.stkx-ic {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--brand-bg);
-  border: 1px solid var(--brand-line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--brand);
-  margin-bottom: 16px;
-}
-.stkx-ic svg { width: 22px; height: 22px; }
-.stkx-name {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--fg);
-  margin: 0 0 8px;
-}
-.stkx-brand {
-  font-weight: 500;
-  color: var(--fg-subtle);
-}
-.stkx-benefit {
-  font-size: 16.5px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: var(--brand);
-  margin: 0 0 10px;
-  text-wrap: pretty;
-}
-.stkx-tech {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--fg-muted);
-  margin: 0;
-  text-wrap: pretty;
-}
-
-@media (max-width: 1040px) { .stkx-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 680px) {
-  .stkx-grid { grid-template-columns: 1fr; }
-  .stkx { margin-top: 48px; padding-top: 40px; }
-}
 
 /* The italic display face was the hardest thing on the page to read at size.
    Removing the declarations was not enough: em is italic by user-agent
    default, so the headings have to opt out explicitly. The two-tone
    distinction now rides on weight and colour alone. */
 h1 em, h2 em, h3 em, h4 em { font-style: normal; }
+
+/* ════════════════════════════════════════════════════════════
+   STACK MODULES · the twelve pieces, inside the diagram
+   Module cards carry their own accent, one shade deeper than the
+   frame around them, so the levels stay legible as levels.
+   ════════════════════════════════════════════════════════════ */
+.stk-core-top {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+.stk-engine-head { margin-bottom: 20px; }
+.stk-engine-head .stk-benefit { margin-bottom: 0; }
+
+.stk-modlist {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.stk-modlist--core {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stk-modcard {
+  --brand-rgb:  90, 20, 181;
+  --brand:      rgb(var(--brand-rgb));
+  --brand-bg:   rgba(var(--brand-rgb), 0.07);
+  --brand-line: rgba(var(--brand-rgb), 0.2);
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  transition: border-color 0.2s var(--ease);
+}
+.stk-modcard:hover { border-color: var(--brand-line); }
+.stk-modcard-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.stk-modcard-ic {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--brand-bg);
+  border: 1px solid var(--brand-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+}
+.stk-modcard-ic svg { width: 18px; height: 18px; }
+.stk-modcard-name {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0 auto 0 0;
+}
+.stk-modcard-brand { font-weight: 500; color: var(--fg-subtle); }
+.stk-modcard-benefit {
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--brand);
+  margin: 0 0 8px;
+  text-wrap: pretty;
+}
+.stk-modcard-tech {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg-muted);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+@media (max-width: 700px) {
+  .stk-modlist--core { grid-template-columns: 1fr; }
+  .stk-modcard-head { flex-wrap: wrap; }
+  .stk-modcard-name { margin-right: 0; }
+}
