@@ -5209,130 +5209,8 @@ img.brand-mark::before {
 .cbx-link:hover { border-color: var(--brand); }
 .cbx-link svg { width: 14px; height: 14px; }
 
-.cbx-metrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-/* The speed proof sits under both figures, spanning them. */
-.cbx-metrics .cbx-jump { grid-column: 1 / -1; }
-.cbx-metric {
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 30px 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.cbx-num {
-  font-family: var(--font-sans);
-  font-size: clamp(28px, 3vw, 36px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: var(--brand);
-  margin-bottom: 8px;
-}
-.cbx-unit {
-  font-size: 0.5em;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: var(--fg-muted);
-}
-.cbx-lbl {
-  font-size: 15px;
-  line-height: 1.4;
-  color: var(--fg-muted);
-  font-weight: 500;
-}
-
-/* The SKU jump: the one figure worth reading from across the room. */
-.cbx-jump {
-  padding: 28px 26px 26px;
-  border: 1px solid var(--brand-line);
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(var(--brand-rgb), 0.08) 0%, rgba(var(--brand-rgb), 0.02) 100%);
-  text-align: center;
-}
-.cbx-jump-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--brand);
-  margin-bottom: 14px;
-}
-.cbx-jump-figures {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  font-family: var(--font-sans);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-.cbx-jump-from {
-  font-size: clamp(28px, 3vw, 36px);
-  color: var(--fg-subtle);
-}
-.cbx-jump-to {
-  font-size: clamp(28px, 3vw, 36px);
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.cbx-jump-arrow {
-  align-self: center;
-  color: var(--brand-line);
-}
-.cbx-jump-arrow svg { width: 26px; height: auto; display: block; }
-.cbx-jump-unit {
-  font-size: clamp(28px, 3vw, 36px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--fg-soft);
-}
-.cbx-jump-where {
-  margin-top: 6px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--fg-subtle);
-}
-.cbx-jump-time {
-  margin-top: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--fg-soft);
-}
-.cbx-jump-foot {
-  margin: 12px 0 0;
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--fg-muted);
-  text-wrap: pretty;
-}
-
 @media (max-width: 900px) {
   .cbx { grid-template-columns: 1fr; gap: 32px; }
-}
-@media (max-width: 560px) {
-  .cbx-jump { padding: 30px 20px 28px; }
-  .cbx-jump-figures { gap: 10px; }
-  /* Stacked, the arrow has to own its line or it reads as a stray glyph. */
-  .cbx-jump-arrow {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
-    transform: rotate(90deg);
-  }
 }
 
 
@@ -5721,4 +5599,88 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
 
 @media (max-width: 560px) {
   .stk-engine::before { left: 20px; right: 20px; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   CLICKBOX · four proofs
+   Each one is a before and an after, so they share one shape: what it
+   measures, the two numbers, and what the change means.
+   ════════════════════════════════════════════════════════════ */
+.cbx--stack { display: block; }
+.cbx--stack .cbx-copy { max-width: 820px; }
+
+.cbx-pf {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 44px;
+}
+.cbx-pf-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+}
+.cbx-pf-lab {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--brand);
+  margin-bottom: 16px;
+  /* Two of the four labels wrap; the floor keeps the figures on one line. */
+  min-height: 2.4em;
+}
+.cbx-pf-fig {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.cbx-pf-from {
+  font-size: clamp(22px, 2vw, 27px);
+  color: var(--fg-subtle);
+}
+.cbx-pf-to {
+  font-size: clamp(22px, 2vw, 27px);
+  color: var(--brand);
+}
+.cbx-pf-word {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--fg-muted);
+}
+.cbx-pf-arrow {
+  align-self: center;
+  color: var(--brand-line);
+}
+.cbx-pf-arrow svg { width: 26px; height: auto; display: block; }
+.cbx-pf-sub {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg-soft);
+}
+.cbx-pf-txt {
+  margin: 14px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--fg-muted);
+  text-wrap: pretty;
+}
+
+@media (max-width: 1040px) {
+  .cbx-pf { grid-template-columns: repeat(2, 1fr); }
+  .cbx-pf-lab { min-height: 0; }
+}
+@media (max-width: 560px) {
+  .cbx-pf { grid-template-columns: 1fr; }
 }
