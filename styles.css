@@ -5348,8 +5348,8 @@ img.brand-mark::before {
   padding: 30px 32px;
 }
 .stk-core-mark {
-  width: 68px;
-  height: 68px;
+  width: 72px;
+  height: 72px;
   border-radius: 16px;
   background: var(--bg-elevated);
   border: 1px solid var(--brand-line);
@@ -5358,7 +5358,7 @@ img.brand-mark::before {
   justify-content: center;
   color: var(--brand);
 }
-.stk-core-mark svg { width: 34px; height: 34px; }
+.stk-core-mark svg { width: 36px; height: 36px; }
 .stk-core-title {
   font-size: clamp(24px, 2.6vw, 30px);
   font-weight: 700;
@@ -5367,7 +5367,7 @@ img.brand-mark::before {
   margin: 0 0 8px;
 }
 /* The alignment floor only exists to line up the three engine columns. */
-.stk-core .stk-desc { min-height: 0; }
+.stk-core .stk-desc { min-height: 0; margin-bottom: 0; }
 
 /* Connector drawn in CSS: a stem down from the core, a bar across, three drops. */
 /* Full grid width, so the three drops land on the column centres below. */
@@ -5495,21 +5495,25 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
    ════════════════════════════════════════════════════════════ */
 .stk-core-top {
   display: grid;
-  grid-template-columns: 68px 1fr;
-  gap: 22px;
-  margin-bottom: 24px;
+  grid-template-columns: 72px 1fr;
+  gap: 24px;
 }
+.stk-core-body { max-width: 860px; }
+/* Title and status share a baseline row rather than stacking. */
+.stk-core-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.stk-core-line .stk-core-title { margin-bottom: 0; }
 .stk-engine-head { margin-bottom: 20px; }
 .stk-engine-head .stk-benefit { margin-bottom: 0; }
 
 .stk-modlist {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-.stk-modlist--core {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
@@ -5617,7 +5621,6 @@ h1 em, h2 em, h3 em, h4 em { font-style: normal; }
 .stk-modcard-panel-in .stk-modcard-tech { padding-top: 12px; }
 
 @media (max-width: 700px) {
-  .stk-modlist--core { grid-template-columns: 1fr; }
   .stk-modcard-head { flex-wrap: wrap; }
   .stk-modcard-name { margin-right: 0; }
 }
