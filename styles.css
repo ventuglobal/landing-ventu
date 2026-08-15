@@ -5241,19 +5241,6 @@ img.brand-mark::before {
   color: var(--brand);
   margin-bottom: 8px;
 }
-/* Placeholder styling: loud on purpose, so an unfilled figure cannot ship
-   unnoticed. Remove the modifier together with the text. */
-.cbx-num--todo {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  color: #b4341f;
-  background: rgba(180, 52, 31, 0.08);
-  border: 1px dashed rgba(180, 52, 31, 0.4);
-  border-radius: 6px;
-  padding: 5px 8px;
-  display: inline-block;
-}
 .cbx-unit {
   font-size: 0.5em;
   font-weight: 600;
