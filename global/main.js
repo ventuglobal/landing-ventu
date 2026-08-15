@@ -148,3 +148,24 @@
     if (e.key === 'Escape') close();
   });
 })();
+
+// ════════════════════════════════════════════════════════════
+// Stack module detail
+// Same behaviour as ventu.cl: the benefit line is always visible and the
+// technical paragraph opens on demand, one card at a time per engine, so a
+// column never turns into a wall of text while its neighbours stay short.
+// ════════════════════════════════════════════════════════════
+(function () {
+  document.querySelectorAll('.stk-modcard-more').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.stk-modcard');
+      const opening = !card.classList.contains('open');
+      card.closest('.stk-modlist').querySelectorAll('.stk-modcard.open').forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.stk-modcard-more').setAttribute('aria-expanded', 'false');
+      });
+      card.classList.toggle('open', opening);
+      btn.setAttribute('aria-expanded', String(opening));
+    });
+  });
+})();
