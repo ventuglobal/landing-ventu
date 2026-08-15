@@ -154,12 +154,56 @@ h1 em, h2 em, h3 em { font-style: normal; font-weight: 600; color: var(--brand);
   background: var(--line); border: 1px solid var(--line); border-radius: 14px;
   overflow: hidden;
 }
-.thesis li { background: var(--bg); padding: 22px 20px; }
+.thesis li { background: var(--bg); }
 .thesis-v {
   display: block; font-size: clamp(24px, 2.6vw, 32px); font-weight: 700;
   letter-spacing: -0.03em; color: var(--brand); line-height: 1.05; margin-bottom: 6px;
 }
 .thesis-k { display: block; font-size: 14px; line-height: 1.4; color: var(--ink-3); }
+
+/* The tile is the claim; the baseline it beats sits behind a click, so the
+   hero keeps its height and the comparison is still one gesture away. */
+.thesis-btn {
+  display: block; width: 100%; text-align: left;
+  padding: 22px 42px 22px 20px;
+  background: none; border: 0; cursor: pointer;
+  font: inherit; color: inherit;
+  position: relative;
+  transition: background 0.2s var(--ease);
+}
+.thesis-btn:hover { background: var(--brand-bg); }
+.thesis-btn:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
+.thesis-chev {
+  position: absolute; right: 18px; top: 28px;
+  width: 8px; height: 8px;
+  border-right: 1.5px solid var(--brand);
+  border-bottom: 1.5px solid var(--brand);
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform 0.25s var(--ease);
+}
+.thesis-item.open .thesis-chev { transform: rotate(225deg) translate(-1px, -1px); }
+.thesis-panel {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s var(--ease);
+}
+.thesis-item.open .thesis-panel { grid-template-rows: 1fr; }
+.thesis-panel-in { overflow: hidden; }
+.thesis-panel-body { padding: 0 20px 22px; }
+.thesis-cat {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; font-weight: 600; color: var(--brand);
+  margin-bottom: 10px;
+}
+.thesis-old { font-size: 13.5px; line-height: 1.5; color: var(--ink-4); margin-bottom: 8px; }
+.thesis-old s { text-decoration-color: var(--line-2); }
+.thesis-tag {
+  display: inline-block; margin-right: 7px;
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em;
+  font-weight: 600; color: var(--ink-4);
+  border: 1px solid var(--line-2); border-radius: 999px; padding: 2px 7px;
+  vertical-align: 1px;
+}
+.thesis-why { font-size: 13.5px; line-height: 1.5; color: var(--ink-3); }
 
 .hero-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 16px 24px; }
 

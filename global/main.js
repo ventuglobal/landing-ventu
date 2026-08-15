@@ -169,3 +169,25 @@
     });
   });
 })();
+
+// ════════════════════════════════════════════════════════════
+// Hero 10x tiles
+// One tile open at a time: the hero has a job to do, and four open panels
+// turn it into a section.
+// ════════════════════════════════════════════════════════════
+(function () {
+  const items = [...document.querySelectorAll('.thesis-item')];
+  items.forEach(item => {
+    const btn = item.querySelector('.thesis-btn');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      const opening = !item.classList.contains('open');
+      items.forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.thesis-btn').setAttribute('aria-expanded', 'false');
+      });
+      item.classList.toggle('open', opening);
+      btn.setAttribute('aria-expanded', String(opening));
+    });
+  });
+})();
