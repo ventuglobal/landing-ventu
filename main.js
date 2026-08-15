@@ -65,26 +65,6 @@
 })();
 
 // ════════════════════════════════════════════════════════════
-// Stack module accordion
-// One row open at a time within a card, so a card never turns into a wall
-// of text while its neighbours stay short.
-// ════════════════════════════════════════════════════════════
-(function () {
-  document.querySelectorAll('.stk-mod-head').forEach(head => {
-    head.addEventListener('click', () => {
-      const row = head.closest('.stk-mod');
-      const opening = !row.classList.contains('open');
-      row.closest('.stk-mods').querySelectorAll('.stk-mod.open').forEach(other => {
-        other.classList.remove('open');
-        other.querySelector('.stk-mod-head').setAttribute('aria-expanded', 'false');
-      });
-      row.classList.toggle('open', opening);
-      head.setAttribute('aria-expanded', String(opening));
-    });
-  });
-})();
-
-// ════════════════════════════════════════════════════════════
 // Registration form
 // Fields mirror the partner hub so both intakes stay comparable:
 // full_name, email, company, message and consent, plus categories

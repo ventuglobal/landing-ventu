@@ -267,9 +267,10 @@ img.brand-mark::before {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  /* The thread is much taller than the copy; centring left a gap above the
-     eyebrow. Both columns now start together. */
-  align-items: start;
+  /* Centring used to strand the eyebrow far down the page, because the thread
+     towered over the copy. The columns are close enough in height now that
+     centring reads as balance rather than as a gap. */
+  align-items: center;
   position: relative;
   z-index: 1;
 }
@@ -311,17 +312,16 @@ img.brand-mark::before {
 .hero-h1 {
   font-family: var(--font-sans);
   font-size: clamp(34px, 3.8vw, 50px);
-  line-height: 1.06;
-  letter-spacing: -0.035em;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 26px;
   color: var(--fg);
   text-wrap: balance;
   max-width: 22ch;
 }
 .hero-h1 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -332,8 +332,8 @@ img.brand-mark::before {
 
 .hero-sub {
   font-family: var(--font-sans);
-  font-size: clamp(17px, 1.4vw, 19px);
-  line-height: 1.55;
+  font-size: clamp(18px, 1.5vw, 20px);
+  line-height: 1.6;
   color: var(--fg-muted);
   font-weight: 400;
   max-width: 42ch;
@@ -870,8 +870,7 @@ img.brand-mark::before {
   margin-bottom: 20px;
 }
 .section-h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--brand);
 }
 .section-sub {
@@ -1146,8 +1145,7 @@ img.brand-mark::before {
   margin-bottom: 14px;
 }
 .faq-header h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--brand);
 }
 .faq-header p {
@@ -1222,7 +1220,7 @@ img.brand-mark::before {
 }
 .faq-a-inner {
   padding: 0 0 24px;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.7;
   color: var(--fg-muted);
   max-width: 720px;
@@ -1413,8 +1411,7 @@ img.brand-mark::before {
   margin-bottom: 16px;
 }
 .perks-header h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--brand);
 }
 .perks-header p {
@@ -1499,8 +1496,7 @@ img.brand-mark::before {
   margin-bottom: 16px;
 }
 .get-started-header h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--brand);
 }
 .get-started-header p {
@@ -2622,7 +2618,7 @@ img.brand-mark::before {
   margin-bottom: 4px;
 }
 .ww-desc {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--fg-soft);
 }
@@ -3314,8 +3310,7 @@ img.brand-mark::before {
   margin-bottom: 20px;
 }
 .valueprop-header h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--brand);
 }
 .valueprop-header p {
@@ -3429,8 +3424,7 @@ img.brand-mark::before {
   margin-bottom: 14px;
 }
 .stats-header h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   color: #c5edd9;
 }
 .stats-header p {
@@ -3535,8 +3529,7 @@ img.brand-mark::before {
   margin-bottom: 20px;
 }
 .connected-header h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--brand);
 }
 .connected-header p {
@@ -3779,8 +3772,7 @@ img.brand-mark::before {
   margin-bottom: 20px;
 }
 .driver-h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--brand);
 }
 
@@ -4151,8 +4143,7 @@ img.brand-mark::before {
   margin-bottom: 24px;
 }
 .cta-h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--brand);
 }
 .cta-sub {
@@ -4371,8 +4362,7 @@ img.brand-mark::before {
   text-wrap: balance;
 }
 .differentiator h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -4839,9 +4829,9 @@ img.brand-mark::before {
 .hero-facts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 26px;
-  max-width: 440px;
+  gap: 12px;
+  margin-top: 44px;
+  max-width: 460px;
 }
 .hero-fact {
   border: 1px solid var(--line);
@@ -4883,8 +4873,7 @@ img.brand-mark::before {
   text-wrap: balance;
 }
 .hiw-head h2 em {
-  font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -4942,7 +4931,7 @@ img.brand-mark::before {
   color: var(--fg);
   margin-bottom: 7px;
 }
-.hiw-text { font-size: 16px; line-height: 1.6; color: var(--fg-muted); }
+.hiw-text { font-size: 17px; line-height: 1.6; color: var(--fg-muted); }
 
 /* ────────── AI business flow ────────── */
 @media (max-width: 1000px) {
@@ -5180,18 +5169,20 @@ img.brand-mark::before {
    ════════════════════════════════════════════════════════════ */
 .cbx {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 52px;
+  /* Stretch, so the two tiles fill the copy column's height instead of
+     floating at the top of an empty half. */
+  align-items: stretch;
 }
 .cbx-logo {
   display: block;
   width: auto;
-  height: 44px;
-  margin-bottom: 22px;
+  height: 62px;
+  margin-bottom: 24px;
 }
 .cbx-lead {
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.55;
   color: var(--fg-soft);
   font-weight: 500;
@@ -5199,7 +5190,7 @@ img.brand-mark::before {
   text-wrap: pretty;
 }
 .cbx-note {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--fg-muted);
   margin: 0 0 22px;
@@ -5221,14 +5212,17 @@ img.brand-mark::before {
 
 .cbx-metrics {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 .cbx-metric {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 30px 26px;
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .cbx-num {
   font-family: var(--font-sans);
@@ -5246,7 +5240,7 @@ img.brand-mark::before {
   color: var(--fg-muted);
 }
 .cbx-lbl {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.4;
   color: var(--fg-muted);
   font-weight: 500;
@@ -5255,7 +5249,7 @@ img.brand-mark::before {
 /* The SKU jump: the one figure worth reading from across the room. */
 .cbx-jump {
   margin-top: 44px;
-  padding: 40px 32px 36px;
+  padding: 34px 28px 32px;
   border: 1px solid var(--brand-line);
   border-radius: 20px;
   background: linear-gradient(135deg, rgba(var(--brand-rgb), 0.08) 0%, rgba(var(--brand-rgb), 0.02) 100%);
@@ -5282,11 +5276,11 @@ img.brand-mark::before {
   line-height: 1;
 }
 .cbx-jump-from {
-  font-size: clamp(38px, 6vw, 68px);
+  font-size: clamp(30px, 4.4vw, 52px);
   color: var(--fg-subtle);
 }
 .cbx-jump-to {
-  font-size: clamp(52px, 9vw, 104px);
+  font-size: clamp(40px, 6vw, 72px);
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -5296,23 +5290,23 @@ img.brand-mark::before {
   align-self: center;
   color: var(--brand-line);
 }
-.cbx-jump-arrow svg { width: clamp(34px, 5vw, 56px); height: auto; display: block; }
+.cbx-jump-arrow svg { width: clamp(28px, 3.6vw, 44px); height: auto; display: block; }
 .cbx-jump-unit {
-  font-size: clamp(20px, 2.4vw, 30px);
+  font-size: clamp(17px, 1.9vw, 23px);
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--fg-soft);
 }
 .cbx-jump-time {
   margin-top: 14px;
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(17px, 1.7vw, 21px);
   font-weight: 600;
   color: var(--fg);
 }
 .cbx-jump-foot {
   max-width: 620px;
   margin: 18px auto 0;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.6;
   color: var(--fg-muted);
   text-wrap: pretty;
@@ -5332,9 +5326,7 @@ img.brand-mark::before {
     transform: rotate(90deg);
   }
 }
-@media (max-width: 460px) {
-  .cbx-metrics { grid-template-columns: 1fr; }
-}
+
 
 /* ════════════════════════════════════════════════════════════
    STACK · one core, three engines
@@ -5378,8 +5370,7 @@ img.brand-mark::before {
 }
 /* The alignment floor only exists to line up the three engine columns. */
 .stk-core .stk-desc { min-height: 0; }
-/* The core card is full width, so cap the measure of its open panels. */
-.stk-core .stk-mod-panel-in { max-width: 760px; }
+.stk-core .stk-mods { max-width: 460px; }
 
 /* Connector drawn in CSS: a stem down from the core, a bar across, three drops. */
 /* Full grid width, so the three drops land on the column centres below. */
@@ -5437,7 +5428,7 @@ img.brand-mark::before {
   margin: 0 0 8px;
 }
 .stk-benefit {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.45;
   font-weight: 600;
   color: var(--brand-deep);
@@ -5445,14 +5436,14 @@ img.brand-mark::before {
   text-wrap: pretty;
 }
 .stk-desc {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--fg-muted);
   margin: 0 0 18px;
   text-wrap: pretty;
   /* Three lines, so the rules below the descriptions align across columns
      even though the module lists have different lengths. */
-  min-height: 72px;
+  min-height: 78px;
 }
 
 .stk-mods {
@@ -5465,66 +5456,18 @@ img.brand-mark::before {
   flex-direction: column;
   gap: 8px;
 }
-.stk-mod { border-bottom: 1px solid var(--line-soft); }
-.stk-mod:last-child { border-bottom: 0; }
-
-.stk-mod-head {
-  width: 100%;
+.stk-mod {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 0;
-  background: none;
-  border: 0;
-  cursor: pointer;
-  text-align: left;
-  font: inherit;
-  color: inherit;
+  padding: 5px 0;
 }
 .stk-mod-name {
   font-family: var(--font-mono);
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 500;
   color: var(--fg-soft);
   margin-right: auto;
-}
-.stk-chev {
-  flex: none;
-  width: 7px;
-  height: 7px;
-  border-right: 1.5px solid var(--fg-subtle);
-  border-bottom: 1.5px solid var(--fg-subtle);
-  transform: rotate(45deg) translate(-2px, -2px);
-  transition: transform 0.25s var(--ease);
-}
-.stk-mod.open .stk-chev {
-  transform: rotate(225deg) translate(-2px, -2px);
-  border-color: var(--brand);
-}
-.stk-mod.open .stk-mod-name { color: var(--brand-deep); }
-
-/* 0fr to 1fr animates cleanly whatever the panel's natural height turns out to be. */
-.stk-mod-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.28s var(--ease);
-}
-.stk-mod.open .stk-mod-panel { grid-template-rows: 1fr; }
-.stk-mod-panel-in { overflow: hidden; }
-.stk-mod-benefit {
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 600;
-  color: var(--fg-soft);
-  margin: 0 0 8px;
-  text-wrap: pretty;
-}
-.stk-mod-tech {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--fg-muted);
-  margin: 0 0 14px;
-  text-wrap: pretty;
 }
 .stk-tag {
   font-family: var(--font-mono);
@@ -5557,3 +5500,105 @@ img.brand-mark::before {
   .stk-core { grid-template-columns: 1fr; gap: 18px; padding: 26px 22px; }
   .stk-mod { flex-wrap: wrap; gap: 6px; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   STACK EXTENDED · the twelve modules in full
+   Its own accent, one shade deeper than the site brand, so the block
+   reads as a separate register without leaving the palette.
+   ════════════════════════════════════════════════════════════ */
+.stkx {
+  --brand-rgb:  90, 20, 181;
+  --brand:      rgb(var(--brand-rgb));
+  --brand-deep: #3f0d84;
+  --brand-bg:   rgba(var(--brand-rgb), 0.07);
+  --brand-line: rgba(var(--brand-rgb), 0.2);
+  margin-top: 64px;
+  padding-top: 56px;
+  border-top: 1px solid var(--line);
+}
+.stkx-head {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 36px;
+}
+.stkx-head h3 {
+  font-family: var(--font-sans);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--fg);
+  margin-top: 12px;
+  text-wrap: balance;
+}
+.stkx-head h3 em {
+  font-weight: 600;
+  color: var(--brand);
+}
+.stkx-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.stkx-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px 22px 22px;
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.stkx-card:hover {
+  border-color: var(--brand-line);
+  transform: translateY(-2px);
+}
+.stkx-ic {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--brand-bg);
+  border: 1px solid var(--brand-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand);
+  margin-bottom: 16px;
+}
+.stkx-ic svg { width: 22px; height: 22px; }
+.stkx-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0 0 8px;
+}
+.stkx-brand {
+  font-weight: 500;
+  color: var(--fg-subtle);
+}
+.stkx-benefit {
+  font-size: 16.5px;
+  line-height: 1.5;
+  font-weight: 600;
+  color: var(--brand);
+  margin: 0 0 10px;
+  text-wrap: pretty;
+}
+.stkx-tech {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--fg-muted);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+@media (max-width: 1040px) { .stkx-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 680px) {
+  .stkx-grid { grid-template-columns: 1fr; }
+  .stkx { margin-top: 48px; padding-top: 40px; }
+}
+
+/* The italic display face was the hardest thing on the page to read at size.
+   Removing the declarations was not enough: em is italic by user-agent
+   default, so the headings have to opt out explicitly. The two-tone
+   distinction now rides on weight and colour alone. */
+h1 em, h2 em, h3 em, h4 em { font-style: normal; }
